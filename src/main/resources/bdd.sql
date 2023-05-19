@@ -1,5 +1,5 @@
 create table costs(
-                      id serial PRIMARY KEY,
+                     id serial PRIMARY KEY,
                       date date,
                       type character(6),
                       montant numeric,
