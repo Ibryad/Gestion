@@ -9,7 +9,8 @@ import jakarta.persistence.*;
 @Table(name="costs")
 public class Costs {
     @Id
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
     private Date date;
     private String type;
     private double montant;
@@ -19,7 +20,7 @@ public class Costs {
 
     }
 
-    public Costs(Long id, Date date, String type, double montant, String description) {
+    public Costs(Integer id, Date date, String type, double montant, String description) {
         this.id = id;
         this.date = date;
         this.type = type;
@@ -27,11 +28,17 @@ public class Costs {
         this.description = description;
     }
 
-    public Long getId() {
+    public Costs(Date date, String type, double montant, String description) {
+
+
+    }
+
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
