@@ -1,9 +1,8 @@
 package com.joza.gestion.entity;
 
-import java.sql.Date;
-import java.util.List;
-
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name="costs")
@@ -11,7 +10,7 @@ public class Costs {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
-    private Date date;
+    private LocalDate date;
     private String type;
     private double montant;
     private String description;
@@ -20,7 +19,7 @@ public class Costs {
 
     }
 
-    public Costs(Integer id, Date date, String type, double montant, String description) {
+    public Costs(Integer id, LocalDate date, String type, double montant, String description) {
         this.id = id;
         this.date = date;
         this.type = type;
@@ -28,10 +27,7 @@ public class Costs {
         this.description = description;
     }
 
-    public Costs(Date date, String type, double montant, String description) {
 
-
-    }
 
 
     public Integer getId() {
@@ -42,11 +38,11 @@ public class Costs {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
