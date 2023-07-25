@@ -1,25 +1,33 @@
 package com.joza.gestion.web;
 
-import java.time.LocalDate;
+import com.joza.gestion.service.MonthlyCost;
+import java.time.YearMonth;
 
 public class CostsResponse {
 
-    private LocalDate date;
-
+    private YearMonth yearMonth;
     private double debit;
+    private double credit;
 
-    public CostsResponse(LocalDate date, double debit, double credit) {
-        this.date = date;
+
+    public CostsResponse(YearMonth yearMonth, double debit, double credit) {
+        this.yearMonth = yearMonth;
         this.debit = debit;
         this.credit = credit;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public CostsResponse(YearMonth yearMonth, MonthlyCost monthlyCost) {
+        this.yearMonth = yearMonth;
+        this.debit = monthlyCost.getMontantDebit();
+        this.credit = monthlyCost.getMontantCredit();
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public YearMonth getYearMonth() {
+        return yearMonth;
+    }
+
+    public void setYearMonth(YearMonth yearMonth) {
+        this.yearMonth = yearMonth;
     }
 
     public double getDebit() {
@@ -37,8 +45,6 @@ public class CostsResponse {
     public void setCredit(double credit) {
         this.credit = credit;
     }
-
-    private double credit;
 
 
 
